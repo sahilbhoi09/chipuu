@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Happiest Birthday Chipuuu! 🎉🎂</title>
+    <title>Happy Birthday Sonyyyy!</title>
     <style>
         body {
             margin: 0;
@@ -189,20 +189,20 @@
     </style>
 </head>
 <body>
-    <h1>Happiest Birthday Chipuuu! 🎉🎂</h1>
-    <div class="heart">❤️</div>
+    <h1>Happiest Birthday Sonyyyy! 🎉🎂</h1>
+    <div class="heart">❤</div>
 
-    <div class="typewriter">Hieeee Chipuuu, I love you so much! ❤️</div>
+    <div class="typewriter">Hieeee Sonyyyy, I love you so much! ❤</div>
 
     <p>
-        Wishing you the most amazing birthday, my dear pookie! 🎉❤️🎂<br />
+        Wishing you the most amazing birthday, my dear pookie! 🎉❤🎂<br />
         I hope this day is filled with love, joy, and laughter! 😘💕🌟
     </p>
 
     <div class="clickables">
         <button onclick="showHearts()">Click for Love</button>
         <button onclick="showSprinkles()">Click for Wishes</button>
-        <button onclick="showBirthday()">Happy Birthday Chipuuu ✨</button>
+        <button onclick="showBirthday()">Happy Birthday Sonyyy ✨</button>
         <button onclick="showFireworks()">Celebrate with Fireworks 🎆</button>
         <button onclick="window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')">Special Video 🎥</button>
     </div>
@@ -230,7 +230,7 @@
 
         function showHearts() {
             const heartsContainer = document.querySelector('.hearts');
-            createShower(heartsContainer, 'heart-shower', '❤️');
+            createShower(heartsContainer, 'heart-shower', '❤');
         }
 
         function showSprinkles() {
@@ -240,19 +240,17 @@
 
         function showBirthday() {
             const birthdayContainer = document.querySelector('.birthday-shower');
-            createShower(birthdayContainer, 'birthday-message', 'Happy Birthday Chipuuu ✨');
+            createShower(birthdayContainer, 'birthday-message', 'Happy Birthday Sonyyy ✨');
         }
 
         function showFireworks() {
             const fireworksContainer = document.querySelector('.fireworks');
-            // Clear previous fireworks before adding new ones
-            fireworksContainer.innerHTML = '';
             for (let i = 0; i < 10; i++) {
-                const firework = document.createElement('div');
-                firework.classList.add('firework');
-                firework.style.left = Math.random() * 100 + 'vw';
-                firework.style.animationDelay = Math.random() * 5 + 's';
-                fireworksContainer.appendChild(firework);
+                const fireworkTrail = document.createElement('div');
+                fireworkTrail.classList.add('firework-trail');
+                fireworkTrail.style.left = Math.random() * 100 + 'vw';
+                fireworkTrail.style.animationDelay = Math.random() * 5 + 's';
+                fireworksContainer.appendChild(fireworkTrail);
             }
         }
 
