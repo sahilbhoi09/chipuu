@@ -245,12 +245,14 @@
 
         function showFireworks() {
             const fireworksContainer = document.querySelector('.fireworks');
+            // Clear previous fireworks before adding new ones
+            fireworksContainer.innerHTML = '';
             for (let i = 0; i < 10; i++) {
-                const fireworkTrail = document.createElement('div');
-                fireworkTrail.classList.add('firework-trail');
-                fireworkTrail.style.left = Math.random() * 100 + 'vw';
-                fireworkTrail.style.animationDelay = Math.random() * 5 + 's';
-                fireworksContainer.appendChild(fireworkTrail);
+                const firework = document.createElement('div');
+                firework.classList.add('firework');
+                firework.style.left = Math.random() * 100 + 'vw';
+                firework.style.animationDelay = Math.random() * 5 + 's';
+                fireworksContainer.appendChild(firework);
             }
         }
 
