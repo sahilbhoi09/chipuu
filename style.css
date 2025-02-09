@@ -1,0 +1,90 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #f8c8dc, #f4b6c3);
+    color: #333;
+    text-align: center;
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+/* Header Section */
+header {
+    margin-top: 20px;
+}
+
+h1 {
+    font-size: 3em;
+    color: #FF1493;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: #FF69B4;
+    margin-top: 10px;
+}
+
+/* Romantic Message */
+.message {
+    font-size: 1.3em;
+    color: #fff;
+    margin: 30px 0;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+}
+
+/* Image Section */
+.image-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    margin: 30px 0;
+}
+
+/* Buttons Section */
+.buttons {
+    margin-top: 30px;
+}
+
+button {
+    background-color: #FF69B4;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #FF1493;
+}
+
+/* Footer */
+footer {
+    font-size: 1.1em;
+    color: #fff;
+    padding: 20px 0;
+    background-color: #282828;
+    margin-top: 30px;
+    border-radius: 10px;
+}
