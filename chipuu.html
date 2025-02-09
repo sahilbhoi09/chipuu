@@ -13,33 +13,33 @@
             text-align: center;
             overflow: hidden;
             color: #FF3399;
-            position: bottom;
         }
 
         h1 {
-            font-size: 4rem;
-            margin-top: 2rem;
+            font-size: 3rem;
+            margin-top: 1.5rem;
             text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.8);
         }
 
         .message {
-            font-size: 1.8rem;
-            margin-top: 2rem;
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
             color: #ffffff;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            padding: 0 10px;
         }
 
         .clickables {
-            margin-top: 50px;
+            margin-top: 30px;
         }
 
         .clickables button {
             background-color: #FF4DA6;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1rem;
             border: none;
-            padding: 15px 30px;
-            margin: 15px;
+            padding: 12px 25px;
+            margin: 10px;
             border-radius: 30px;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s;
@@ -47,7 +47,7 @@
 
         .clickables button:hover {
             background-color: #E60073;
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .floating-container {
@@ -61,7 +61,7 @@
 
         .emoji {
             position: absolute;
-            font-size: 2rem;
+            font-size: 1.8rem;
             opacity: 1;
             animation: float 5s linear forwards;
         }
@@ -78,49 +78,52 @@
         }
 
         .birthday-wishes {
-            position: absolute;
-            bottom: 150px;
+            position: relative;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 400px;
+            width: 90%;
+            max-width: 400px;
             background: rgba(255, 255, 255, 0.7);
             border-radius: 15px;
-            padding: 20px;
+            padding: 15px;
             color: black;
             font-family: 'Dancing Script', cursive;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .cake  {
+        .cake, .heart {
             position: absolute;
-            top: 50%;
-            left: 80%;
-            transform: translate(-50%, -50%) scale(1);
-            font-size: 100px;
-            color: black;
+            top: 80%;
+            font-size: 80px;
             animation: heartbeat 2s infinite;
         }
 
-        .heart {
-            position: absolute;
-            top: 50%;
-            left: 20%;
-            transform: translate(-50%, -50%) scale(1);
-            font-size: 100px;
-            color: red;
-            animation: heartbeat 1s infinite;
+        .cake {
+            left: 70%;
         }
-      
+        .heart {
+            left: 20%;
+            color: red;
+        }
 
         @keyframes heartbeat {
             0%, 100% {
-                transform: translate(-50%, -50%) scale(1);
+                transform: scale(1);
             }
             50% {
-                transform: translate(-50%, -50%) scale(1.3);
+                transform: scale(1.2);
             }
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .message { font-size: 1.2rem; }
+            .clickables button { font-size: 0.9rem; padding: 10px 20px; }
+            .cake, .heart { font-size: 60px; top: 85%; }
+            .birthday-wishes { bottom: 0px; }
         }
     </style>
 </head>
@@ -137,7 +140,7 @@
 
     <div class="floating-container"></div>
     <div class="heart">💖</div>
-   <div class="cake">🎂</div>
+    <div class="cake">🎂</div>
     
     <div class="birthday-wishes">
         <p>🎂 "Today, I celebrate the day you were born, the day that brought the most incredible love into my life. Happy birthday, my soulmate CHIPUUU!!!."</p>
