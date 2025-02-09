@@ -3,225 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happiest Birthday Chipuuu!</title>
+    <title>Happy Birthday Chipuu!</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Dancing+Script:wght@700&display=swap');
-        body {
+        /* Global reset for consistency */
+        * {
             margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #87CEFA;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
             text-align: center;
-            overflow: hidden;
-            color: #FF3399;
-            position: bottom;
+            line-height: 1.6;
         }
 
         h1 {
-            font-size: 4rem;
-            margin-top: 2rem;
-            text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.8);
-        }
-
-        .message {
-            font-size: 1.8rem;
-            margin-top: 2rem;
-            color: #ffffff;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        }
-
-        .clickables {
+            font-size: 3em;
+            color: #FF69B4;
             margin-top: 50px;
-            z-index: 1;
         }
 
-        .clickables button {
-            background-color: #FF4DA6;
+        p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .birthday-message {
+            font-size: 1.5em;
+            color: #FF6347;
+            margin: 20px 0;
+        }
+
+        .balloons {
+            background-image: url('https://via.placeholder.com/800x400/FF69B4/FFFFFF?text=Happy+Birthday+Chipuu');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            margin: 20px 0;
+        }
+
+        footer {
+            font-size: 1em;
+            color: #999;
+            margin-top: 40px;
+            padding: 10px 0;
+            background-color: #282828;
             color: white;
-            font-size: 1.2rem;
+        }
+
+        button {
+            background-color: #FF6347;
+            color: white;
             border: none;
-            padding: 15px 30px;
-            margin: 15px;
-            border-radius: 30px;
+            padding: 15px 25px;
+            font-size: 1.2em;
+            margin: 10px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s;
+            transition: background-color 0.3s;
         }
 
-        .clickables button:hover {
-            background-color: #E60073;
-            transform: scale(1.1);
+        button:hover {
+            background-color: #FF4500;
         }
 
-        .floating-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
+        .celebration-buttons {
+            margin-top: 20px;
         }
 
-        .emoji {
-            position: absolute;
-            font-size: 2rem;
-            opacity: 1;
-            animation: float 5s linear forwards;
-        }
-
-        @keyframes float {
-            from {
-                transform: translateY(100vh) scale(1);
-                opacity: 1;
-            }
-            to {
-                transform: translateY(-10vh) scale(1.5);
-                opacity: 0;
-            }
-        }
-
-        .birthday-wishes {
-            position: absolute;
-            bottom: 150px; /* Adjust bottom to give more space above the buttons */
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 400px;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 15px;
-            padding: 20px;
-            color: black;
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.5rem;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .cake {
-            position: absolute;
-            top: 50%;
-            left: 80%;
-            transform: translate(-50%, -50%) scale(1);
-            font-size: 100px;
-            color: black;
-            animation: heartbeat 2s infinite;
-        }
-
-        .heart {
-            position: absolute;
-            top: 50%;
-            left: 20%;
-            transform: translate(-50%, -50%) scale(1);
-            font-size: 100px;
-            color: red;
-            animation: heartbeat 1s infinite;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% {
-                transform: translate(-50%, -50%) scale(1);
-            }
-            50% {
-                transform: translate(-50%, -50%) scale(1.3);
-            }
-        }
-
-        /* Mobile Specific Styles */
         @media (max-width: 768px) {
             h1 {
-                font-size: 3rem;
+                font-size: 2.5em;
             }
 
-            .message {
-                font-size: 1.5rem;
+            .birthday-message {
+                font-size: 1.2em;
             }
 
-            .clickables button {
-                font-size: 1rem;
-                padding: 12px 25px;
-                margin: 10px;
+            p {
+                font-size: 1em;
             }
 
-            .birthday-wishes {
-                font-size: 1.2rem;
-                padding: 15px;
-                bottom: 180px; /* Adjusted bottom spacing */
+            .balloons {
+                height: 200px;
             }
 
-            .cake, .heart {
-                font-size: 70px;
-            }
-
-            .emoji {
-                font-size: 1.5rem;
-            }
-        }
-
-        /* Mobile Small Specific Styles */
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .message {
-                font-size: 1.2rem;
-            }
-
-            .clickables button {
-                font-size: 0.9rem;
-                padding: 10px 20px;
-                margin: 8px;
-            }
-
-            .birthday-wishes {
-                font-size: 1rem;
-                padding: 10px;
-                bottom: 160px; /* Adjusted bottom spacing */
-            }
-
-            .cake, .heart {
-                font-size: 50px;
-            }
-
-            .emoji {
-                font-size: 1.2rem;
+            button {
+                font-size: 1em;
+                padding: 12px 20px;
             }
         }
     </style>
 </head>
 <body>
-    <h1>Happiest Birthday Chipuuu! 🎉🎂</h1>
-    <div class="message">Wishing you the most amazing birthday! 💖🎊🎁</div>
+    <!-- Festive balloons section -->
+    <div class="balloons"></div>
 
-    <!-- Reordered: Buttons are above the message and the birthday wishes -->
-    <div class="clickables">
-        <button onclick="showerEmojis('🥺❤')">🥺❤ Click for Love</button>
-        <button onclick="showerEmojis('✨HAPPY BIRTHDAY CHIPPU🫶🏻❤️')">Click for Wishes✨</button>
-        <button onclick="showerEmojis('I LOVE YOU🫶🏻❤️')">Click HERE🫶🏻❤️</button>
-        <button onclick="window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')">Special Video 🎥</button>
+    <!-- Main Heading -->
+    <h1>Happy Birthday, Chipuu!</h1>
+
+    <!-- Birthday wish -->
+    <p>Wishing you an amazing day filled with love, laughter, and joy!</p>
+
+    <!-- Special birthday message -->
+    <div class="birthday-message">
+        <p>May all your dreams come true on this special day!</p>
+        <p style="font-size: 1.4em; color: #FF4500;">I love you so much, Chipuu! You're the most amazing person in my life, and I feel so lucky to call you mine. Happy Birthday, my love!</p>
     </div>
 
-    <div class="floating-container"></div>
-    <div class="heart">💖</div>
-   <div class="cake">🎂</div>
-
-    <!-- Birthday Wishes Section (below the buttons now) -->
-    <div class="birthday-wishes">
-        <p>🎂 "Today, I celebrate the day you were born, the day that brought the most incredible love into my life. Happy birthday, my soulmate CHIPUUU!!!."</p>
-        <p>💖 "You don't know how much I love you. From the first day we met, I fell in your love every day like a leaf falls to the ground from a tree."</p>
-        <p>🔗 "I want you in my life for our 7 births as a couple, and we will take care of each other in every moment of our lives🧿♾."</p>
+    <!-- Celebration Buttons -->
+    <div class="celebration-buttons">
+        <button onclick="blowKiss()">Blow a Kiss 💋</button>
+        <button onclick="sendHeart()">Send a Heart ❤️</button>
+        <button onclick="makeAWish()">Make a Wish 🌟</button>
     </div>
+
+    <!-- Footer with a personal message -->
+    <footer>
+        <p>With all my love, your boyfriend ❤️</p>
+    </footer>
 
     <script>
-        function showerEmojis(emoji) {
-            const container = document.querySelector('.floating-container');
-            for (let i = 0; i < 20; i++) {
-                let elem = document.createElement('div');
-                elem.className = 'emoji';
-                elem.textContent = emoji;
-                elem.style.left = Math.random() * 100 + 'vw';
-                elem.style.animationDuration = (Math.random() * 2 + 3) + 's';
-                container.appendChild(elem);
-                setTimeout(() => elem.remove(), 3000);
-            }
+        // Functions for buttons
+        function blowKiss() {
+            alert("💋 Sending you a virtual kiss, Chipuu! Mwah!");
+        }
+
+        function sendHeart() {
+            alert("❤️ Sending you all my love, Chipuu! You mean the world to me!");
+        }
+
+        function makeAWish() {
+            alert("🌟 Make a wish, Chipuu! May all your dreams come true today and always.");
         }
     </script>
 </body>
