@@ -31,6 +31,7 @@
 
         .clickables {
             margin-top: 50px;
+            z-index: 1;
         }
 
         .clickables button {
@@ -79,7 +80,7 @@
 
         .birthday-wishes {
             position: absolute;
-            bottom: 200px; /* Increased bottom spacing */
+            bottom: 150px; /* Adjust bottom to give more space above the buttons */
             left: 50%;
             transform: translateX(-50%);
             width: 90%;
@@ -189,7 +190,8 @@
 <body>
     <h1>Happiest Birthday Chipuuu! 🎉🎂</h1>
     <div class="message">Wishing you the most amazing birthday! 💖🎊🎁</div>
-    
+
+    <!-- Reordered: Buttons are above the message and the birthday wishes -->
     <div class="clickables">
         <button onclick="showerEmojis('🥺❤')">🥺❤ Click for Love</button>
         <button onclick="showerEmojis('✨HAPPY BIRTHDAY CHIPPU🫶🏻❤️')">Click for Wishes✨</button>
@@ -200,7 +202,8 @@
     <div class="floating-container"></div>
     <div class="heart">💖</div>
    <div class="cake">🎂</div>
-    
+
+    <!-- Birthday Wishes Section (below the buttons now) -->
     <div class="birthday-wishes">
         <p>🎂 "Today, I celebrate the day you were born, the day that brought the most incredible love into my life. Happy birthday, my soulmate CHIPUUU!!!."</p>
         <p>💖 "You don't know how much I love you. From the first day we met, I fell in your love every day like a leaf falls to the ground from a tree."</p>
