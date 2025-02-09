@@ -13,6 +13,7 @@
             text-align: center;
             overflow-y: auto;
             color: #FF3399;
+            height: 100vh;
         }
 
         h1 {
@@ -160,6 +161,7 @@
                 container.appendChild(elem);
                 setTimeout(() => elem.remove(), 3000);
             }
+            document.body.style.overflowY = 'auto';
         }
     </script>
 </body>
