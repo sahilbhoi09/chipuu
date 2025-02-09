@@ -3,141 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Chipuu!</title>
-    <style>
-        /* Global reset for consistency */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f8ff;
-            color: #333;
-            text-align: center;
-            line-height: 1.6;
-        }
-
-        h1 {
-            font-size: 3em;
-            color: #FF69B4;
-            margin-top: 50px;
-        }
-
-        p {
-            font-size: 1.2em;
-            color: #555;
-        }
-
-        .birthday-message {
-            font-size: 1.5em;
-            color: #FF6347;
-            margin: 20px 0;
-        }
-
-        .balloons {
-            background-image: url('https://via.placeholder.com/800x400/FF69B4/FFFFFF?text=Happy+Birthday+Chipuu');
-            background-size: cover;
-            background-position: center;
-            height: 300px;
-            margin: 20px 0;
-        }
-
-        footer {
-            font-size: 1em;
-            color: #999;
-            margin-top: 40px;
-            padding: 10px 0;
-            background-color: #282828;
-            color: white;
-        }
-
-        button {
-            background-color: #FF6347;
-            color: white;
-            border: none;
-            padding: 15px 25px;
-            font-size: 1.2em;
-            margin: 10px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #FF4500;
-        }
-
-        .celebration-buttons {
-            margin-top: 20px;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5em;
-            }
-
-            .birthday-message {
-                font-size: 1.2em;
-            }
-
-            p {
-                font-size: 1em;
-            }
-
-            .balloons {
-                height: 200px;
-            }
-
-            button {
-                font-size: 1em;
-                padding: 12px 20px;
-            }
-        }
-    </style>
+    <title>For My Love ❤️</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Festive balloons section -->
-    <div class="balloons"></div>
+    <div class="container">
+        <!-- Romantic header -->
+        <header>
+            <h1>To My Dearest Love ❤️</h1>
+            <p class="subtitle">This is just for you, my one and only.</p>
+        </header>
 
-    <!-- Main Heading -->
-    <h1>Happy Birthday, Chipuu!</h1>
+        <!-- Romantic Message Section -->
+        <section class="message">
+            <p>Every moment with you feels like a beautiful dream come true.</p>
+            <p>My heart beats only for you, and I can't imagine my life without your love. You make everything better. I promise to love you forever and always.</p>
+        </section>
 
-    <!-- Birthday wish -->
-    <p>Wishing you an amazing day filled with love, laughter, and joy!</p>
+        <!-- Romantic Image Section -->
+        <section class="image-section">
+            <img src="https://via.placeholder.com/600x400/FFB6C1/000000?text=Forever+Together" alt="Romantic Love">
+        </section>
 
-    <!-- Special birthday message -->
-    <div class="birthday-message">
-        <p>May all your dreams come true on this special day!</p>
-        <p style="font-size: 1.4em; color: #FF4500;">I love you so much, Chipuu! You're the most amazing person in my life, and I feel so lucky to call you mine. Happy Birthday, my love!</p>
+        <!-- Buttons with Love Quotes -->
+        <section class="buttons">
+            <button onclick="loveQuote1()">💖 "You are my everything"</button>
+            <button onclick="loveQuote2()">💌 "I am yours, forever"</button>
+            <button onclick="loveQuote3()">💍 "You complete me"</button>
+        </section>
+
+        <!-- Footer Section -->
+        <footer>
+            <p>With all my love, always and forever. ❤️</p>
+        </footer>
     </div>
-
-    <!-- Celebration Buttons -->
-    <div class="celebration-buttons">
-        <button onclick="blowKiss()">Blow a Kiss 💋</button>
-        <button onclick="sendHeart()">Send a Heart ❤️</button>
-        <button onclick="makeAWish()">Make a Wish 🌟</button>
-    </div>
-
-    <!-- Footer with a personal message -->
-    <footer>
-        <p>With all my love, your boyfriend ❤️</p>
-    </footer>
 
     <script>
-        // Functions for buttons
-        function blowKiss() {
-            alert("💋 Sending you a virtual kiss, Chipuu! Mwah!");
+        function loveQuote1() {
+            alert("💖 'You are my everything.'");
         }
 
-        function sendHeart() {
-            alert("❤️ Sending you all my love, Chipuu! You mean the world to me!");
+        function loveQuote2() {
+            alert("💌 'I am yours, forever.'");
         }
 
-        function makeAWish() {
-            alert("🌟 Make a wish, Chipuu! May all your dreams come true today and always.");
+        function loveQuote3() {
+            alert("💍 'You complete me.'");
         }
     </script>
 </body>
