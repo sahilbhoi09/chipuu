@@ -1,90 +1,68 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+function playMusic() {
+    document.getElementById("bg-music").play();
+    alert("🎵 Playing 'Ik Kudi' for you! 💖");
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #f8c8dc, #f4b6c3);
-    color: #333;
-    text-align: center;
-    height: 100vh;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+function showQuote() {
+    let quotes = [
+        "You're amazing! ✨",
+        "Keep smiling! 😊",
+        "You're stronger than you know! 💪",
+        "Believe in yourself! 🌟",
+        "You deserve happiness! 💖"
+    ];
+    let randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    document.getElementById("quote-box").innerText = randomQuote;
 }
 
-.container {
-    max-width: 800px;
-    margin: auto;
-    text-align: center;
-}
+// Sparkling surprise effect
+function triggerSurprise() {
+    let canvas = document.getElementById("sparkleCanvas");
+    let ctx = canvas.getContext("2d");
 
-/* Header Section */
-header {
-    margin-top: 20px;
-}
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-h1 {
-    font-size: 3em;
-    color: #FF1493;
-}
+    let particles = [];
 
-.subtitle {
-    font-size: 1.2em;
-    color: #FF69B4;
-    margin-top: 10px;
-}
+    function Particle(x, y) {
+        this.x = x;
+        this.y = y;
+        this.size = Math.random() * 6 + 3;
+        this.speedX = Math.random() * 3 - 1.5;
+        this.speedY = Math.random() * 3 - 1.5;
+        this.color = "rgba(255, 255, 255, 0.9)";
 
-/* Romantic Message */
-.message {
-    font-size: 1.3em;
-    color: #fff;
-    margin: 30px 0;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.6);
-    border-radius: 10px;
-}
+        this.update = function () {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.size > 0.2) this.size -= 0.1;
+        };
 
-/* Image Section */
-.image-section img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-    margin: 30px 0;
-}
+        this.draw = function () {
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        };
+    }
 
-/* Buttons Section */
-.buttons {
-    margin-top: 30px;
-}
+    function createParticles() {
+        for (let i = 0; i < 100; i++) {
+            particles.push(new Particle(window.innerWidth / 2, window.innerHeight / 2));
+        }
+    }
 
-button {
-    background-color: #FF69B4;
-    color: white;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    border: none;
-    border-radius: 10px;
-    margin: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+    function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
+        }
+        particles = particles.filter(p => p.size > 0.2);
+        requestAnimationFrame(animateParticles);
+    }
 
-button:hover {
-    background-color: #FF1493;
-}
-
-/* Footer */
-footer {
-    font-size: 1.1em;
-    color: #fff;
-    padding: 20px 0;
-    background-color: #282828;
-    margin-top: 30px;
-    border-radius: 10px;
+    createParticles();
+    animateParticles();
 }
