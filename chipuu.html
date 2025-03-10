@@ -43,21 +43,73 @@
             background: linear-gradient(90deg, #ff2e63, #ff477e);
             transform: scale(1.1) rotate(-2deg);
         }
+
+        #quote-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            font-size: 1.5em;
+            display: none;
+        }
+
+        #quote-box button {
+            margin-top: 10px;
+            background: #ff477e;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🌟 Welcome swagat hai apka , Sonal kahar! 🌹lijiye apke liye rose💖</h1>
-        <p>"Are you sad? 😭 Not for long! Here’s a song that describes your personality! 😜💟"</p>
+        <h1>🌟 Welcome apka swagat hai, Sonal kahar!🌹 apke liye rose🫡💖</h1>
+        <p>"Are you sad? 😭 Not for long! Here’s a song that describes your personality! 😜💟 ,,,,,also click the quote button"</p>
 
         <button onclick="playSong()">🎵 Play Song</button>
+        <button onclick="showQuote()">💬 Show a Quote</button>
         <button onclick="changeBackground()">🌈 Change Background</button>
         <button onclick="triggerSurprise()">🎉 Surprise Me!</button>
     </div>
 
+    <div id="quote-box">
+        <p id="quote-text"></p>
+        <button onclick="closeQuote()">Close</button>
+    </div>
+
+    <canvas id="sparkleCanvas"></canvas>
+
     <script>
         function playSong() {
             window.open("https://youtu.be/C8nxICQI5Xo?si=QLFVExltNVSNsQe2", "_blank");
+        }
+
+        function showQuote() {
+            let quotes = [
+                "You're amazing! ✨",
+                "Keep smiling! 😊",
+                "You're so beautiful ❤️🌹",
+                "everything will be fine and you'll get your exictment, interest and joy back. ! 🌟",
+                "i know may be you don't like to talk to me but it's ohkkk because I can do anything that make you happy and I'm sorry for what I did  💖"
+            ];
+            let randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById("quote-text").innerText = randomQuote;
+            document.getElementById("quote-box").style.display = "block";
+        }
+
+        function closeQuote() {
+            document.getElementById("quote-box").style.display = "none";
         }
 
         function changeBackground() {
@@ -72,7 +124,55 @@
         }
 
         function triggerSurprise() {
-            alert("✨ Surprise! Sparkles Coming Soon! 🎉");
+            let canvas = document.getElementById("sparkleCanvas");
+            let ctx = canvas.getContext("2d");
+
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            let particles = [];
+
+            function Particle(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 8 + 3;
+                this.speedX = Math.random() * 5 - 2.5;
+                this.speedY = Math.random() * 5 - 2.5;
+                let colors = ["#ff477e", "#ff6b6b", "#fbc2eb", "#fad0c4", "#4facfe", "#00f2fe", "#ff9a9e", "#fccb90"];
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+
+                this.update = function () {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.size > 0.2) this.size -= 0.1;
+                };
+
+                this.draw = function () {
+                    ctx.fillStyle = this.color;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                };
+            }
+
+            function createParticles() {
+                for (let i = 0; i < 100; i++) {
+                    particles.push(new Particle(window.innerWidth / 2, window.innerHeight / 2));
+                }
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                }
+                particles = particles.filter(p => p.size > 0.2);
+                requestAnimationFrame(animateParticles);
+            }
+
+            createParticles();
+            animateParticles();
         }
     </script>
 </body>
