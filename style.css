@@ -1,90 +1,59 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #f8c8dc, #f4b6c3);
-    color: #333;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #ffdde1, #fccb90);
     height: 100vh;
-    padding: 20px;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
-    justify-content: space-between;
-}
-
-.container {
-    max-width: 800px;
-    margin: auto;
-    text-align: center;
-}
-
-/* Header Section */
-header {
-    margin-top: 20px;
+    overflow: hidden;
 }
 
 h1 {
+    font-family: 'Pacifico', cursive;
     font-size: 3em;
-    color: #FF1493;
-}
-
-.subtitle {
-    font-size: 1.2em;
-    color: #FF69B4;
-    margin-top: 10px;
-}
-
-/* Romantic Message */
-.message {
-    font-size: 1.3em;
     color: #fff;
-    margin: 30px 0;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.6);
-    border-radius: 10px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Image Section */
-.image-section img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-    margin: 30px 0;
-}
-
-/* Buttons Section */
-.buttons {
-    margin-top: 30px;
+.quote {
+    font-size: 1.8em;
+    color: #fff;
+    margin: 20px 0;
 }
 
 button {
-    background-color: #FF69B4;
+    background: linear-gradient(90deg, #ff477e, #ff6b6b);
     color: white;
+    border: none;
     padding: 15px 30px;
     font-size: 1.2em;
-    border: none;
+    cursor: pointer;
     border-radius: 10px;
     margin: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease-in-out;
 }
 
 button:hover {
-    background-color: #FF1493;
+    background: linear-gradient(90deg, #ff2e63, #ff477e);
+    transform: scale(1.1);
 }
 
-/* Footer */
-footer {
-    font-size: 1.1em;
+#quote-box {
+    margin-top: 20px;
+    font-size: 1.8em;
     color: #fff;
-    padding: 20px 0;
-    background-color: #282828;
-    margin-top: 30px;
-    border-radius: 10px;
+    font-weight: bold;
+    font-family: 'Pacifico', cursive;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }
