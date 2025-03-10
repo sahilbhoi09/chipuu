@@ -3,166 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happiest Birthday Chipuuu!</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Dancing+Script:wght@700&display=swap');
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #87CEFA;
-            text-align: center;
-            overflow-y: auto;
-            color: #FF3399;
-            height: 100vh;
-        }
-
-        h1 {
-            font-size: 3rem;
-            margin-top: 1.5rem;
-            text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.8);
-        }
-
-        .message {
-            font-size: 1.5rem;
-            margin-top: 1.5rem;
-            color: #ffffff;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-            padding: 0 10px;
-        }
-
-        .clickables {
-            margin-top: 30px;
-        }
-
-        .clickables button {
-            background-color: #FF4DA6;
-            color: white;
-            font-size: 1rem;
-            border: none;
-            padding: 12px 25px;
-            margin: 10px;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s;
-        }
-
-        .clickables button:hover {
-            background-color: #E60073;
-            transform: scale(1.05);
-        }
-
-        .floating-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .emoji {
-            position: absolute;
-            font-size: 1.8rem;
-            opacity: 1;
-            animation: float 5s linear forwards;
-        }
-
-        @keyframes float {
-            from {
-                transform: translateY(100vh) scale(1);
-                opacity: 1;
-            }
-            to {
-                transform: translateY(-10vh) scale(1.5);
-                opacity: 0;
-            }
-        }
-
-        .birthday-wishes {
-            position: relative;
-            margin-top: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 400px;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 15px;
-            padding: 15px;
-            color: black;
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.2rem;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .cake, .heart {
-            position: absolute;
-            top: 80%;
-            font-size: 80px;
-            animation: heartbeat 2s infinite;
-        }
-
-        .cake {
-            left: 70%;
-        }
-        .heart {
-            left: 20%;
-            color: red;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.2);
-            }
-        }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 2.5rem; }
-            .message { font-size: 1.2rem; }
-            .clickables button { font-size: 0.9rem; padding: 10px 20px; }
-            .cake, .heart { font-size: 60px; top: 85%; }
-            .birthday-wishes { margin-top: 50px; }
-        }
-    </style>
+    <title>Stay Strong, Sonal! ✨💖</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Happiest Birthday Chipuuu! 🎉🎂</h1>
-    <div class="message">Wishing you the most amazing birthday! 💖🎊🎁</div>
-    
-    <div class="clickables">
-        <button onclick="showerEmojis('🥺❤')">🥺❤ Click for Love</button>
-        <button onclick="showerEmojis('✨HAPPY BIRTHDAY CHIPPU🫶🏻❤')">Click for Wishes✨</button>
-        <button onclick="showerEmojis('I LOVE YOU🫶🏻❤')">Click HERE🫶🏻❤</button>
-        <button onclick="window.open('https://youtube.com/watch?v=keNN-IOfbj4&si=gaOvu0sKRBZA2GHZ', '_blank')">Special Video 🎥</button>
+    <audio id="bg-music" loop>
+        <source src="ik_kudi.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="container">
+        <h1>🌟 Welcome, Sonal! 💖</h1>
+        <p class="quote">"You are stronger than you think! 💪✨"</p>
+        
+        <button onclick="playMusic()">🎵 Play Song</button>
+        <button onclick="showQuote()">💬 Show a Quote</button>
+        <button onclick="triggerSurprise()">🎉 Surprise Me!</button>
+
+        <div id="quote-box"></div>
+        <canvas id="sparkleCanvas"></canvas>
     </div>
 
-    <div class="floating-container"></div>
-    <div class="heart">💖</div>
-    <div class="cake">🎂</div>
-    
-    <div class="birthday-wishes">
-        <p>🎂 "Today, I celebrate the day you were born, the day that brought the most incredible love into my life. Happy birthday, my soulmate CHIPUUU!!!."</p>
-        <p>💖 "You don't know how much I love you. From the first day we met, I fell in your love every day like a leaf falls to the ground from a tree."</p>
-        <p>🔗 "I want you in my life for our 7 births as a couple, and we will take care of each other in every moment of our lives🧿♾."</p>
-    </div>
-
-    <script>
-        function showerEmojis(emoji) {
-            const container = document.querySelector('.floating-container');
-            for (let i = 0; i < 20; i++) {
-                let elem = document.createElement('div');
-                elem.className = 'emoji';
-                elem.textContent = emoji;
-                elem.style.left = Math.random() * 100 + 'vw';
-                elem.style.animationDuration = (Math.random() * 2 + 3) + 's';
-                container.appendChild(elem);
-                setTimeout(() => elem.remove(), 3000);
-            }
-            document.body.style.overflowY = 'auto';
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
