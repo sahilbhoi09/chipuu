@@ -2,6 +2,7 @@ body {
     font-family: 'Poppins', sans-serif;
     text-align: center;
     background: linear-gradient(45deg, #ff9a9e, #fad0c4, #ffdde1, #fccb90);
+    transition: background 1s ease-in-out;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -33,12 +34,12 @@ button {
     border-radius: 10px;
     margin: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    transition: 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 button:hover {
     background: linear-gradient(90deg, #ff2e63, #ff477e);
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(-2deg);
 }
 
 #quote-box {
@@ -47,6 +48,12 @@ button:hover {
     color: #fff;
     font-weight: bold;
     font-family: 'Pacifico', cursive;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 canvas {
