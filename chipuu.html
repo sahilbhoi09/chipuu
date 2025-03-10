@@ -21,15 +21,9 @@
 
         h1 {
             font-family: 'Pacifico', cursive;
-            font-size: 3em;
+            font-size: 2.5em;
             color: #fff;
             text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        .quote {
-            font-size: 1.8em;
-            color: #fff;
-            margin: 20px 0;
         }
 
         button {
@@ -50,20 +44,36 @@
             transform: scale(1.1) rotate(-2deg);
         }
 
-        #quote-box {
-            margin-top: 20px;
-            font-size: 1.8em;
-            color: #fff;
-            font-weight: bold;
+        /* Pop-up Window */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .popup h2 {
             font-family: 'Pacifico', cursive;
-            animation: fadeIn 0.5s ease-in-out;
+            font-size: 1.8em;
+            color: #ff477e;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .popup button {
+            background: #ff477e;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            margin-top: 10px;
         }
 
+        /* Sparkling Effect */
         canvas {
             position: absolute;
             top: 0;
@@ -75,42 +85,43 @@
     </style>
 </head>
 <body>
-    <audio id="bg-music" loop>
-        <source src="ik_kudi.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
+    <!-- Embedded YouTube Song -->
+    <iframe width="0" height="0" src="https://www.youtube.com/embed/C8nxICQI5Xo?autoplay=1&loop=1" allow="autoplay"></iframe>
 
     <div class="container">
-        <h1>🌟 Welcome, Sonal kahar ...apka swagat hai jiiii🌹!lijiye apke liye rose  💖</h1>
-        <p class="quote">"are you sad😭😭but not for very long time .....here is a song that describe your personality 😜💟"
+        <h1>🌟 Welcome...apka swagat hai , Sonal kahar! 🌹lijiye apke liye rose....💖</h1>
+        <p>"Are you sad? 😭 Not for long! Here’s a song that describes your personality! 😜💟"</p>
 
-"</p>
-        
-        <button onclick="playMusic()">🎵 Play Song</button>
         <button onclick="showQuote()">💬 Show a Quote</button>
         <button onclick="changeBackground()">🌈 Change Background</button>
         <button onclick="triggerSurprise()">🎉 Surprise Me!</button>
 
-        <div id="quote-box"></div>
+        <div id="quotePopup" class="popup">
+            <h2 id="quoteText">You're amazing! ✨</h2>
+            <button onclick="closePopup()">Close</button>
+        </div>
+
         <canvas id="sparkleCanvas"></canvas>
     </div>
 
     <script>
-        function playMusic() {
-            document.getElementById("bg-music").play();
-            alert("🎵 Playing 'Ik Kudi' for you! 💖");
-        }
-
         function showQuote() {
             let quotes = [
                 "You're amazing! ✨",
                 "Keep smiling! 😊",
                 "You're so beautiful ❤️🌹",
                 "Believe in yourself! 🌟",
-                "everything will be fine....you get your intrest back and feel joy again and become the extrovert sony!!!! 💖"
+                "Everything will be fine. You’ll get your interest back and feel joy again! 💖",
+                "You are enough just as you are. 💫",
+                "Happiness is on its way to you! 🌈"
             ];
             let randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-            document.getElementById("quote-box").innerText = randomQuote;
+            document.getElementById("quoteText").innerText = randomQuote;
+            document.getElementById("quotePopup").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("quotePopup").style.display = "none";
         }
 
         function changeBackground() {
@@ -132,14 +143,15 @@
             canvas.height = window.innerHeight;
 
             let particles = [];
+            let colors = ["#ffcc00", "#ff66b2", "#66ff66", "#66b2ff", "#ff5050"];
 
             function Particle(x, y) {
                 this.x = x;
                 this.y = y;
-                this.size = Math.random() * 6 + 3;
-                this.speedX = Math.random() * 3 - 1.5;
-                this.speedY = Math.random() * 3 - 1.5;
-                this.color = "rgba(255, 255, 255, 0.9)";
+                this.size = Math.random() * 8 + 2;
+                this.speedX = Math.random() * 4 - 2;
+                this.speedY = Math.random() * 4 - 2;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
 
                 this.update = function () {
                     this.x += this.speedX;
@@ -149,6 +161,8 @@
 
                 this.draw = function () {
                     ctx.fillStyle = this.color;
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = this.color;
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                     ctx.fill();
@@ -156,7 +170,7 @@
             }
 
             function createParticles() {
-                for (let i = 0; i < 100; i++) {
+                for (let i = 0; i < 150; i++) {
                     particles.push(new Particle(window.innerWidth / 2, window.innerHeight / 2));
                 }
             }
