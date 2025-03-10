@@ -85,13 +85,16 @@
     </style>
 </head>
 <body>
-    <!-- Embedded YouTube Song -->
-    <iframe width="0" height="0" src="https://www.youtube.com/embed/C8nxICQI5Xo?autoplay=1&loop=1" allow="autoplay"></iframe>
+    <audio id="bg-music">
+        <source src="ik_kudi.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
 
     <div class="container">
-        <h1>🌟 Welcome...apka swagat hai , Sonal kahar! 🌹lijiye apke liye rose....💖</h1>
+        <h1>🌟 Welcome, Sonal kahar! 💖</h1>
         <p>"Are you sad? 😭 Not for long! Here’s a song that describes your personality! 😜💟"</p>
 
+        <button onclick="playMusic()">🎵 Play Song</button>
         <button onclick="showQuote()">💬 Show a Quote</button>
         <button onclick="changeBackground()">🌈 Change Background</button>
         <button onclick="triggerSurprise()">🎉 Surprise Me!</button>
@@ -105,6 +108,11 @@
     </div>
 
     <script>
+        function playMusic() {
+            document.getElementById("bg-music").play();
+            alert("🎵 Playing 'Ik Kudi' for you! 💖");
+        }
+
         function showQuote() {
             let quotes = [
                 "You're amazing! ✨",
@@ -143,7 +151,7 @@
             canvas.height = window.innerHeight;
 
             let particles = [];
-            let colors = ["#ffcc00", "#ff66b2", "#66ff66", "#66b2ff", "#ff5050"];
+            let colors = ["#ffcc00", "#ff66b2", "#66ff66", "#66b2ff", "#ff5050", "#00ffcc", "#ff9933", "#cc66ff"];
 
             function Particle(x, y) {
                 this.x = x;
@@ -161,7 +169,7 @@
 
                 this.draw = function () {
                     ctx.fillStyle = this.color;
-                    ctx.shadowBlur = 10;
+                    ctx.shadowBlur = 15;
                     ctx.shadowColor = this.color;
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -170,7 +178,7 @@
             }
 
             function createParticles() {
-                for (let i = 0; i < 150; i++) {
+                for (let i = 0; i < 200; i++) {
                     particles.push(new Particle(window.innerWidth / 2, window.innerHeight / 2));
                 }
             }
