@@ -43,93 +43,21 @@
             background: linear-gradient(90deg, #ff2e63, #ff477e);
             transform: scale(1.1) rotate(-2deg);
         }
-
-        /* Pop-up Window */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            text-align: center;
-        }
-
-        .popup h2 {
-            font-family: 'Pacifico', cursive;
-            font-size: 1.8em;
-            color: #ff477e;
-        }
-
-        .popup button {
-            background: #ff477e;
-            color: white;
-            padding: 10px 20px;
-            font-size: 1em;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-
-        /* Sparkling Effect */
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
     </style>
 </head>
 <body>
-    <audio id="bg-music">
-        <source src="ik_kudi.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-
     <div class="container">
         <h1>🌟 Welcome, Sonal kahar! 💖</h1>
         <p>"Are you sad? 😭 Not for long! Here’s a song that describes your personality! 😜💟"</p>
 
-        <button onclick="playMusic()">🎵 Play Song</button>
-        <button onclick="showQuote()">💬 Show a Quote</button>
+        <button onclick="playSong()">🎵 Play Song</button>
         <button onclick="changeBackground()">🌈 Change Background</button>
         <button onclick="triggerSurprise()">🎉 Surprise Me!</button>
-
-        <div id="quotePopup" class="popup">
-            <h2 id="quoteText">You're amazing! ✨</h2>
-            <button onclick="closePopup()">Close</button>
-        </div>
-
-        <canvas id="sparkleCanvas"></canvas>
     </div>
 
     <script>
-        function playMusic() {
-            document.getElementById("bg-music").play();
-            alert("🎵 Playing 'Ik Kudi' for you! 💖");
-        }
-
-        function showQuote() {
-            let quotes = [
-                "You're amazing! ✨",
-                "Keep smiling! 😊",
-                "You're so beautiful ❤️🌹",
-                "Believe in yourself! 🌟",
-                "Everything will be fine. You’ll get your interest back and feel joy again! 💖",
-                "You are enough just as you are. 💫",
-                "Happiness is on its way to you! 🌈"
-            ];
-            let randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-            document.getElementById("quoteText").innerText = randomQuote;
-            document.getElementById("quotePopup").style.display = "block";
-        }
-
-        function closePopup() {
-            document.getElementById("quotePopup").style.display = "none";
+        function playSong() {
+            window.open("https://youtu.be/C8nxICQI5Xo?si=QLFVExltNVSNsQe2", "_blank");
         }
 
         function changeBackground() {
@@ -144,57 +72,7 @@
         }
 
         function triggerSurprise() {
-            let canvas = document.getElementById("sparkleCanvas");
-            let ctx = canvas.getContext("2d");
-
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            let particles = [];
-            let colors = ["#ffcc00", "#ff66b2", "#66ff66", "#66b2ff", "#ff5050", "#00ffcc", "#ff9933", "#cc66ff"];
-
-            function Particle(x, y) {
-                this.x = x;
-                this.y = y;
-                this.size = Math.random() * 8 + 2;
-                this.speedX = Math.random() * 4 - 2;
-                this.speedY = Math.random() * 4 - 2;
-                this.color = colors[Math.floor(Math.random() * colors.length)];
-
-                this.update = function () {
-                    this.x += this.speedX;
-                    this.y += this.speedY;
-                    if (this.size > 0.2) this.size -= 0.1;
-                };
-
-                this.draw = function () {
-                    ctx.fillStyle = this.color;
-                    ctx.shadowBlur = 15;
-                    ctx.shadowColor = this.color;
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fill();
-                };
-            }
-
-            function createParticles() {
-                for (let i = 0; i < 200; i++) {
-                    particles.push(new Particle(window.innerWidth / 2, window.innerHeight / 2));
-                }
-            }
-
-            function animateParticles() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                for (let i = 0; i < particles.length; i++) {
-                    particles[i].update();
-                    particles[i].draw();
-                }
-                particles = particles.filter(p => p.size > 0.2);
-                requestAnimationFrame(animateParticles);
-            }
-
-            createParticles();
-            animateParticles();
+            alert("✨ Surprise! Sparkles Coming Soon! 🎉");
         }
     </script>
 </body>
