@@ -4,8 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stay Strong, Sonal! ✨💖</title>
-    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #ffdde1, #fccb90);
+            transition: background 1s ease-in-out;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3em;
+            color: #fff;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .quote {
+            font-size: 1.8em;
+            color: #fff;
+            margin: 20px 0;
+        }
+
+        button {
+            background: linear-gradient(90deg, #ff477e, #ff6b6b);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 10px;
+            margin: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #ff2e63, #ff477e);
+            transform: scale(1.1) rotate(-2deg);
+        }
+
+        #quote-box {
+            margin-top: 20px;
+            font-size: 1.8em;
+            color: #fff;
+            font-weight: bold;
+            font-family: 'Pacifico', cursive;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
     <audio id="bg-music" loop>
@@ -14,8 +81,8 @@
     </audio>
 
     <div class="container">
-        <h1>🌟 hieeeeee Sonall! 💖</h1>
-        <p class="quote">"are you sad😭😭but not for very long time .....here is a song that describe your personality 😜💟"</p>
+        <h1>🌟 Welcome, Sonal! 💖</h1>
+        <p class="quote">"You are stronger than you think! 💪✨"</p>
         
         <button onclick="playMusic()">🎵 Play Song</button>
         <button onclick="showQuote()">💬 Show a Quote</button>
@@ -26,6 +93,85 @@
         <canvas id="sparkleCanvas"></canvas>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function playMusic() {
+            document.getElementById("bg-music").play();
+            alert("🎵 Playing 'Ik Kudi' for you! 💖");
+        }
+
+        function showQuote() {
+            let quotes = [
+                "You're amazing! ✨",
+                "Keep smiling! 😊",
+                "You're stronger than you know! 💪",
+                "Believe in yourself! 🌟",
+                "You deserve happiness! 💖"
+            ];
+            let randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById("quote-box").innerText = randomQuote;
+        }
+
+        function changeBackground() {
+            let colors = [
+                "linear-gradient(45deg, #ff9a9e, #fad0c4, #ffdde1, #fccb90)",
+                "linear-gradient(45deg, #a18cd1, #fbc2eb, #fad0c4)",
+                "linear-gradient(45deg, #ff758c, #ff7eb3, #ffb199)",
+                "linear-gradient(45deg, #4facfe, #00f2fe, #43e97b)"
+            ];
+            let randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.background = randomColor;
+        }
+
+        function triggerSurprise() {
+            let canvas = document.getElementById("sparkleCanvas");
+            let ctx = canvas.getContext("2d");
+
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            let particles = [];
+
+            function Particle(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 6 + 3;
+                this.speedX = Math.random() * 3 - 1.5;
+                this.speedY = Math.random() * 3 - 1.5;
+                this.color = "rgba(255, 255, 255, 0.9)";
+
+                this.update = function () {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.size > 0.2) this.size -= 0.1;
+                };
+
+                this.draw = function () {
+                    ctx.fillStyle = this.color;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                };
+            }
+
+            function createParticles() {
+                for (let i = 0; i < 100; i++) {
+                    particles.push(new Particle(window.innerWidth / 2, window.innerHeight / 2));
+                }
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                }
+                particles = particles.filter(p => p.size > 0.2);
+                requestAnimationFrame(animateParticles);
+            }
+
+            createParticles();
+            animateParticles();
+        }
+    </script>
 </body>
 </html>
